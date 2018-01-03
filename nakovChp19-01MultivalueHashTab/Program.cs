@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace nakovChp19_01MultivalueHashTab
+
+namespace MultiValue_Dictionary
 {
-    class Program
+    public class Dictionary_MultiValue<Tkey, TVal> : Dictionary<Tkey, List<TVal>>
     {
-        static void Main(string[] args)
+        public void Add(Tkey key, TVal val)
         {
+            if (!base.ContainsKey(key))
+                base.Add(key, new List<TVal>());
+            base[key].Add(val);
         }
     }
 }
